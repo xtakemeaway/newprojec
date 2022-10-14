@@ -1,0 +1,145 @@
+.footer {
+	@include adaptiveValue("padding-top", 70, 25);
+	@include adaptiveValue("padding-bottom", 40, 20);
+
+	// .footer__container
+
+	&__container {
+	}
+
+	// .footer__heading
+
+	&__heading {
+	}
+
+	// .footer__inner
+
+	&__inner {
+		display: flex;
+		column-gap: 25px;
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			@include adaptiveValue("row-gap", 25, 20);
+		}
+	}
+
+	// .footer__left
+
+	&__left {
+		flex: 1 1 auto;
+		&>:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 20);
+		}
+	}
+
+	// .footer__top
+
+	&__top {
+		&>:not(:last-child) {
+			margin: 0px 0px 20px 0px;
+		}
+	}
+
+	// .footer__phone
+
+	&__phone {
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("font-size", 24, 20);
+		color: $darkColor;
+		&::before {
+			padding: 0px 20px 0px 0px;
+		}
+		@include transitionValues(color);
+		@media (min-width: $tablet) {
+			&:hover {
+				color: $accentColor;
+			}
+		}
+	}
+
+	// .footer__button
+
+	&__button {
+		padding: 0px 83px 0px 83px;
+	}
+
+	// .footer__list
+
+	&__list {
+		@media (max-width: 1024px) {
+			display: flex;
+			flex-wrap: wrap;
+			row-gap: 15px;
+		}
+	}
+
+	// .footer__item
+
+	&__item {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 20);
+		}
+		@media (max-width: 1024px) {
+			&:not(:last-child) {
+				margin-bottom: 0;
+				@include adaptiveValue("margin-right", 25, 20);
+			}
+		}
+	}
+
+	// .footer__link
+
+	&__link {
+		display: flex;
+		align-items: center;
+		font-weight: 700;
+		&::before {
+			font-size: toRem(30);
+			padding: 0px 20px 0px 0px;
+		}
+		@include transitionValues(color);
+		@media (min-width: $tablet) {
+			&:hover {
+				color: $accentColor;
+			}
+		}
+	}
+
+	// .footer__map
+
+	&__map {
+		flex: 0 0 65.6%;
+		position: relative;
+		padding-bottom: 34.7%;
+		@media (max-width: 600px) {
+			padding-bottom: 60%;
+		}
+	}
+}
+.heading-footer {
+
+	// .heading-footer__title
+
+	&__title {
+	}
+
+	// .heading-footer__description
+
+	&__description {
+	}
+}
+.map {
+
+	// .map__container
+
+	&__inner {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}

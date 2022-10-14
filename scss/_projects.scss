@@ -1,0 +1,99 @@
+.projects {
+
+	// .projects__container
+
+	&__container {
+	}
+
+	// .projects__heading
+
+	&__heading {
+	}
+
+	// .projects__swiper-container
+
+	&__swiper-container {
+		position: relative;
+	}
+
+	// .projects__slide
+
+	&__slide {
+	}
+}
+.heading-projects {
+
+	// .heading-projects__title
+
+	&__title {
+	}
+
+	// .heading-projects__description
+
+	&__description {
+	}
+}
+.slide-projects {
+
+	// .slide-projects__image
+
+	&__image {
+		position: relative;
+		overflow: hidden;
+		padding-bottom: 59.8%;
+		@media (max-width: 768px) {
+			padding-bottom: 50%;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			@include transitionValues(transform);
+			@media (min-width: $tablet) {
+				&:hover {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	// .slide-projects__span
+
+	&__span {
+		font-weight: 700;
+		color: $darkColor;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		position: absolute;
+		left: 32px;
+		bottom: 32px;
+		@include adaptiveValue("left", 32, 10);
+		@include adaptiveValue("bottom", 32, 10);
+		background-color: #fff;
+		min-height: 40px;
+		padding: 0px 20px 0px 20px;
+	}
+}
+.projects-button-prev {
+	left: -50px;
+}
+.projects-button-next {
+	right: -50px;
+}
+.projects-button-prev::after,
+.projects-button-next::after {
+	font-size: toRem(30);
+	color: $mainColor;
+	@include transitionValues(color);
+}
+@media (min-width: $tablet) {
+	.swiper-button-prev:hover.swiper-button-prev::after,
+	.swiper-button-next:hover.swiper-button-next::after {
+		color: $accentColor;
+	}
+}

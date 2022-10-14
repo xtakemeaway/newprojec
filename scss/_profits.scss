@@ -1,0 +1,65 @@
+.profits {
+
+	// .profits__heading
+
+	&__heading {
+		@include adaptiveValue("margin-bottom", 50, 20);
+	}
+
+	// .profits__title
+
+	&__title {
+	}
+
+	// .profits__cards
+
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+		@include adaptiveValue("row-gap", 50, 20);
+	}
+
+	// .profits__card
+
+	&__card {
+		flex: 1 1 33.333%;
+		padding: 0 15px;
+		min-width: 320px;
+		&>:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+	}
+}
+.card-profits {
+
+	// .card-profits__image
+
+	&__image {
+		flex: 0 0 75px;
+		width: 75px;
+		object-fit: cover;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// .card-profits__content
+
+	&__content {
+		&>:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+	}
+
+	// .card-profits__title
+
+	&__title {
+	}
+
+	// .card-profits__text
+
+	&__text {
+	}
+}
