@@ -1,0 +1,147 @@
+// Основной файл компиляции в CSS
+
+// Подкючение модуля для вычислений (например, в функциях)
+@use "sass:math";
+
+// Подключение миксинов
+@import "./base/mixins";
+
+// Глобальное подключение шрифтов (через импорт)
+
+// Локальное подключение шрифтов 
+@import "./fonts/fonts";
+
+// Подключение иконочного шрифта
+@import "./fonts/icons";
+
+// Значения шрифта по умолчанию
+$fontFamily: 'Montserrat', Arial, sans-serif;
+// Pазмер шрифта по умолчанию из макета
+$fontSize: toRem(15);
+
+// Цветовая палитра
+$accentColor: #ffbf00;
+$darkColor: #242424;
+$mainColor: #000;
+
+// Основные параметры страницы
+// Минимальная ширина страницы
+$minWidth: 320;
+// Максимальная ширина страницы (ширина полотна макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера
+$maxWidthContainer: 1150;
+// Отступ безопасности контейнера
+$containerPadding: 30;
+// Ширина срабатывания первого брейкпоинта, общая ширина ограничивающего контейнера
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+$responsiveType: 1;
+
+// Брейкпоинты
+$pc: toEm($containerWidth);
+$tablet: toEm(991.98);
+$mobile: toEm(767.98); 
+$mobileSmall: toEm(479.98);
+
+// Минимальное обнуление стилей
+@import "./base/nullstyle";
+
+// Дополнительные стили для кнопок и списков
+@import "./base/resets";
+
+// Главный контейнер сайта
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	> main {
+		flex: 1 1 auto;
+	}
+}
+.main {
+	min-width: 0;
+}
+
+@if ($responsiveType==1) {
+	[class*="__container"] {
+		@if ($maxWidthContainer > 0) {
+			max-width: toRem($maxWidthContainer);
+			box-sizing: content-box;
+			@extend %marginAuto;
+		}
+		@if ($containerPadding > 0) {
+			padding: 0 toRem(math.div($containerPadding, 2));
+		}
+	}
+} @else {
+	[class*="__container"] {
+		@extend %marginAuto;
+		@if ($maxWidthContainer > 0) {
+			max-width: toRem($maxWidthContainer);
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding > 0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: toRem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: toRem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding > 0 and $maxWidthContainer > 0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// Подключение бургер-меню
+@import "./components/burger";
+// Подключение библиотеки слайдера
+@import "./components/swipers";
+// Подключение анимаций
+@import "./components/animations";
+// Стилизация скроллбара
+@import "./ui/scroll";
+// Стилизация скроллбара
+@import "./ui/range";
+// Стилизация чекбоксов и радиокнопок
+@import "./ui/checkbox";
+// Подключение попапов
+@import "./ui/popups";
+// Общие стили блоков, кнопок, заголовков, карточек
+@import "./components/common";
+// Подключение шапки сайта
+@import "./blocks/header";
+// Firstscreen
+@import "./blocks/firstscreen";
+// About
+@import "./blocks/about";
+// Benefits
+@import "./blocks/benefits";
+// Projects
+@import "./blocks/projects";
+// Style
+@import "./blocks/humanstyle";
+// Process
+@import "./blocks/process";
+// Designer
+@import "./blocks/designer";
+// Offers
+@import "./blocks/offers";
+// Profits
+@import "./blocks/profits";
+// Realization
+@import "./blocks/realization";
+// Works
+@import "./blocks/works";
+// Partners
+@import "./blocks/partners";
+// Подключение подвала сайта
+@import "./blocks/footer";
